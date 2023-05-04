@@ -132,7 +132,7 @@ public class NeNotificationService2 extends NotificationListenerService {
     //当收到一条消息的时候回调，sbn是收到的消息
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        Log.d(TAG, "接受到通知消息");
+        Log.d(TAG, "接收到通知消息");
         writeNotifyToFile(sbn);
         // 微信支付部分通知，会调用两次，导致统计不准确
         if ((sbn.getNotification().flags & Notification.FLAG_GROUP_SUMMARY) != 0) {
@@ -165,7 +165,7 @@ public class NeNotificationService2 extends NotificationListenerService {
                                 || content.contains("店员通") || title.contains("店员通")) {
                             String money;
                             // 新版支付宝，会显示积分情况下。先匹配标题上的金额
-                            if (content.contains("商家积分")) {
+                            if (content.contains("商家积分")||content.contains("积分")) {
                                 money = getMoney(title);
                                 if (money == null) {
                                     money = getMoney(content);
