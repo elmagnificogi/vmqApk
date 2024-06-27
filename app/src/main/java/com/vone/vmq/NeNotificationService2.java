@@ -165,7 +165,7 @@ public class NeNotificationService2 extends NotificationListenerService {
                                 || content.contains("店员通") || title.contains("店员通")) {
                             String money;
                             // 新版支付宝，会显示积分情况下。先匹配标题上的金额
-                            if (content.contains("商家积分")||content.contains("积分")) {
+                            if (content.contains("商家")||content.contains("积分")) {
                                 money = getMoney(title);
                                 if (money == null) {
                                     money = getMoney(content);
